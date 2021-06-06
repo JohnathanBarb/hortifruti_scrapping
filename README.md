@@ -28,14 +28,16 @@ The output will be in the output folder.
 ## Installation 
 
 Install hortifruti_scrapping
+This application uses Python using version 3.9.4
 
 ```bash
+  git clone https://github.com/JohnathanBarb/hortifruti_scrapping.git
+
+  cd hortifruti_scrapping
+
   python3 -m venv venv
 
-  # Linux
   source venv/bin/activate
-  # Windows
-  .\venv\Scripts\activate
 
   pip3 install -r requirements.txt
 
