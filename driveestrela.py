@@ -1,6 +1,7 @@
 from requests import get
 from bs4 import BeautifulSoup as bs4
 from datetime import date
+import os
 
 
 # variaveis iniciais para inicio das requisições
@@ -55,11 +56,11 @@ ano = date_now.strftime('%Y')
 
 # saida para arquivo YYYYmmdd_hostifrutiestrela.csv
 # passando por toda a lista produto e adicionando uma linha à ela
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
-with open('./output/{}{}{}_hortifrutiestrela.csv'.format(ano, mes, dia), 'w+') as _file:
+outputfolder = os.path.join(dir_path, 'output/')
+
+with open(outputfolder + '{}{}{}_hortifrutiestrela.csv'.format(ano, mes, dia), 'w+') as _file:
     _file.write('Codigo;Descricao;Preco\n')
     for produto in produtos:
         _file.write('{};{};{}\n'.format(produto['ref'], produto['descricao'], produto['preco']))
-
-
-
